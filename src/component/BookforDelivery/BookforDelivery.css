@@ -1,0 +1,7 @@
+.inputWrap{
+    margin: 10px;
+}
+.bookForDelivery .inputWrap span, input, textarea{
+    display: block;
+    width: 100%;
+}

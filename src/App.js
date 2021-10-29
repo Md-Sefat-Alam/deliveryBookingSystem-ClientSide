@@ -11,6 +11,9 @@ import Home from './component/Home/Home';
 import BookforDelivery from './component/BookforDelivery/BookforDelivery';
 import AuthProvider from './contexts/AuthProvider';
 import Login from './component/Login/Login';
+import UserData from './component/UserData/UserData';
+import SetOwnOffer from './component/SetOwnOffer/SetOwnOffer';
+import PrivetRoute from './component/PrivetRoute/PrivetRoute';
 
 
 function App() {
@@ -32,15 +35,22 @@ function App() {
                 <Home></Home>
               </Route>
 
+              <PrivetRoute path='/set-own-offer'>
+                <SetOwnOffer></SetOwnOffer>
+              </PrivetRoute>
+
               <Route path='/login'>
                 <Login></Login>
               </Route>
 
-              <Route path='/booking'>
+              <PrivetRoute path='/booking'>
                 <BookforDelivery></BookforDelivery>
-              </Route>
+              </PrivetRoute>
 
             </Switch>
+            <div style={{ position: 'absolute', top: '10%', right: '10%', width: '250px' }}>
+              <UserData></UserData>
+            </div>
           </div>
         </Router>
       </AuthProvider>

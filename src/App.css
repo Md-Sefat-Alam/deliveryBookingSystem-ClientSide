@@ -1,3 +1,16 @@
 .App {
   
 }
+.heading{
+    color: gray;
+    font-weight: bolder;
+    padding: 10px 0px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.selected{
+    font-weight: bolder;
+    color: orange !important;
+    border-bottom: 4px solid orange;
+}
