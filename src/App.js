@@ -14,6 +14,8 @@ import Login from './component/Login/Login';
 import UserData from './component/UserData/UserData';
 import SetOwnOffer from './component/SetOwnOffer/SetOwnOffer';
 import PrivetRoute from './component/PrivetRoute/PrivetRoute';
+import MyOrders from './component/MyOrders/MyOrders';
+import ManageAllOrders from './component/ManageAllOrders/ManageAllOrders';
 
 
 function App() {
@@ -45,6 +47,14 @@ function App() {
 
               <PrivetRoute path='/booking'>
                 <BookforDelivery></BookforDelivery>
+              </PrivetRoute>
+
+              <PrivetRoute path='/my-orders'>
+                <MyOrders></MyOrders>
+              </PrivetRoute>
+
+              <PrivetRoute path='/manage-all-orders'>
+                <ManageAllOrders></ManageAllOrders>
               </PrivetRoute>
 
             </Switch>

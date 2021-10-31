@@ -19,10 +19,16 @@ const Header = () => {
                             <NavLink activeClassName="selected" to="/home" className="nav-link active" aria-current="page" >Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink activeClassName="selected" to="/booking" className="nav-link" >Add a new Booking/ Order</NavLink>
+                            <NavLink activeClassName="selected" to="/booking" className="nav-link" >Booking/ Order</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink activeClassName="selected" to="/set-own-offer" className="nav-link" >Set Own Offer</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink activeClassName="selected" to="/my-orders" className="nav-link" >My Orders</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink activeClassName="selected" to="/manage-all-orders" className="nav-link" >Manage All Orders</NavLink>
                         </li>
                     </ul>
                     <div>
@@ -42,7 +48,7 @@ const Header = () => {
                                     </div>
                                 </div>
                                     :
-                                    <NavLink activeClassName="selected" to="/login" className="nav-link text-warning" >login</NavLink>
+                                    <NavLink activeClassName="selected" to="/login" className="nav-link text-primary fw-bold" >Log in</NavLink>
                             }
                         </div>
                     </div>

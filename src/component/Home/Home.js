@@ -5,7 +5,10 @@ const Home = () => {
     const [offerData, setOfferData] = useState([]);
 
     useEffect(() => {
-        const url = 'http://localhost:7000/user-offer';
+        // const URI = 'https://gentle-beyond-97539.herokuapp.com/'
+        const URI = 'http://localhost:7000/'
+
+        const url = `${URI}user-offer`;
         fetch(url)
             .then(res => res.json())
             .then(data => setOfferData(data))

@@ -12,7 +12,10 @@ const SetOwnOffer = () => {
     const onSubmit = (data, e) => {
         console.log(data);
 
-        axios.post('http://localhost:7000/user-offer', data)
+        // const URI = 'https://gentle-beyond-97539.herokuapp.com/'
+        const URI = 'http://localhost:7000/'
+
+        axios.post(`${URI}user-offer`, data)
             .then(res => {
                 console.log(res);
                 if (res.data.insertedId) {

@@ -1,6 +1,7 @@
 import React from 'react';
 import useAuth from '../../hooks/useAuth';
 import { useLocation, useHistory, NavLink } from 'react-router-dom';
+import googleLogo from '../../images/googleLogo/googleLogo.png'
 
 
 const Login = () => {
@@ -24,14 +25,12 @@ const Login = () => {
     }
 
     return (
-        <div style={{ minHeight: '90vh' }} className='container'>
+        <div style={{ minHeight: '90vh' }} className='container d-flex flex-column align-items-center justify-content-center'>
 
-            <div className='d-flex flex-column justify-content-center'>
-                <NavLink to="/home" className="navbar-brand text-secondary fs-4 fw-bold" >Delivery <span className='text-warning'>Booking</span> System</NavLink>
-
+            <div className=''>
                 <div>
-                    <button className="btn btn-primary d-flex justify-content-start" onClick={handleGoogleLogin}>
-
+                    <button style={{ color: 'green', textAlign: 'left', fontWeight: 'bolder', border: 'none', backgroundColor: 'white' }} className="" onClick={handleGoogleLogin}>
+                        <img style={{ width: '50px' }} src={googleLogo} alt="" />  || Sign In With Google
                     </button>
                 </div>
             </div>

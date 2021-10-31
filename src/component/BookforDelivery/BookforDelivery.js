@@ -18,10 +18,17 @@ const BookforDelivery = () => {
             userName: user.displayName
         };
         data.orderStatus = 'pending';
+        data.identifyUser = user.uid;
 
         console.log(data);
 
-        axios.post('http://localhost:7000/booking', data)
+        // const localUrl = "http://localhost:7000/"
+        // const globalUrl = "https://gentle-beyond-97539.herokuapp.com/"
+
+        // const URI = 'https://gentle-beyond-97539.herokuapp.com/'
+        const URI = 'http://localhost:7000/'
+
+        axios.post(`${URI}booking`, data)
             .then(res => {
                 console.log(res);
                 if (res.data.insertedId) {
