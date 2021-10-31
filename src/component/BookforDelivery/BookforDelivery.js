@@ -7,7 +7,8 @@ import './BookforDelivery.css'
 
 
 
-const BookforDelivery = () => {
+const BookforDelivery = (props) => {
+    const { offerSelect } = props;
 
     const { user } = useAuth();
 
@@ -19,6 +20,9 @@ const BookforDelivery = () => {
         };
         data.orderStatus = 'pending';
         data.identifyUser = user.uid;
+        if (offerSelect._id) {
+            data.offerSelectedData = offerSelect;
+        }
 
         console.log(data);
 

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -16,6 +15,7 @@ import SetOwnOffer from './component/SetOwnOffer/SetOwnOffer';
 import PrivetRoute from './component/PrivetRoute/PrivetRoute';
 import MyOrders from './component/MyOrders/MyOrders';
 import ManageAllOrders from './component/ManageAllOrders/ManageAllOrders';
+import OrderWithOffer from './component/OrderWithOffer/OrderWithOffer';
 
 
 function App() {
@@ -47,6 +47,10 @@ function App() {
 
               <PrivetRoute path='/booking'>
                 <BookforDelivery></BookforDelivery>
+              </PrivetRoute>
+
+              <PrivetRoute path="/order-with-offer/:id">
+                <OrderWithOffer></OrderWithOffer>
               </PrivetRoute>
 
               <PrivetRoute path='/my-orders'>

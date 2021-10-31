@@ -50,7 +50,8 @@ const MyOrders = () => {
                         {
                             myOrders.map(order => {
                                 console.log(order)
-                                const { description, to, phoneTo, from, phoneFrom, cost, img_url, _id, orderStatus } = order;
+                                const { description, to, phoneTo, from, phoneFrom, cost, img_url, _id, orderStatus, offerSelectedData } = order;
+
                                 return (
                                     <div key={_id} className="col">
                                         <div className="card">
@@ -74,6 +75,15 @@ const MyOrders = () => {
                                                     <span>Cost:</span>
                                                     <p className='fs-4 fw-bold'>{cost} tk</p>
                                                 </div>
+
+                                                {
+                                                    offerSelectedData?._id && <div className='py-0'>
+                                                        <span>Selected a offer:</span>
+                                                        <p className='fs-5 fw-bold'>{offerSelectedData.offer}</p>
+                                                    </div>
+                                                }
+
+
                                             </div>
                                             <div className="card-footer d-flex justify-content-between">
                                                 <button onClick={() => handleDeleteMyOrder(_id)} className='btn btn-danger'>Cancel Order</button>
