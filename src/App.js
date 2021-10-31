@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Header from './component/Header/Header';
 import Home from './component/Home/Home';
@@ -16,6 +15,7 @@ import PrivetRoute from './component/PrivetRoute/PrivetRoute';
 import MyOrders from './component/MyOrders/MyOrders';
 import ManageAllOrders from './component/ManageAllOrders/ManageAllOrders';
 import OrderWithOffer from './component/OrderWithOffer/OrderWithOffer';
+import Footer from './component/Footer/Footer';
 
 
 function App() {
@@ -27,44 +27,49 @@ function App() {
             <div className='container'>
               <Header />
             </div>
-            <Switch>
+            <div style={{ minHeight: '90vh' }}>
+              <Switch>
 
-              <Route exact path="/">
-                <Home></Home>
-              </Route>
+                <Route exact path="/">
+                  <Home></Home>
+                </Route>
 
-              <Route path='/home'>
-                <Home></Home>
-              </Route>
+                <Route path='/home'>
+                  <Home></Home>
+                </Route>
 
-              <PrivetRoute path='/set-own-offer'>
-                <SetOwnOffer></SetOwnOffer>
-              </PrivetRoute>
+                <PrivetRoute path='/set-own-offer'>
+                  <SetOwnOffer></SetOwnOffer>
+                </PrivetRoute>
 
-              <Route path='/login'>
-                <Login></Login>
-              </Route>
+                <Route path='/login'>
+                  <Login></Login>
+                </Route>
 
-              <PrivetRoute path='/booking'>
-                <BookforDelivery></BookforDelivery>
-              </PrivetRoute>
+                <PrivetRoute path='/booking'>
+                  <BookforDelivery></BookforDelivery>
+                </PrivetRoute>
 
-              <PrivetRoute path="/order-with-offer/:id">
-                <OrderWithOffer></OrderWithOffer>
-              </PrivetRoute>
+                <PrivetRoute path="/order-with-offer/:id">
+                  <OrderWithOffer></OrderWithOffer>
+                </PrivetRoute>
 
-              <PrivetRoute path='/my-orders'>
-                <MyOrders></MyOrders>
-              </PrivetRoute>
+                <PrivetRoute path='/my-orders'>
+                  <MyOrders></MyOrders>
+                </PrivetRoute>
 
-              <PrivetRoute path='/manage-all-orders'>
-                <ManageAllOrders></ManageAllOrders>
-              </PrivetRoute>
+                <PrivetRoute path='/manage-all-orders'>
+                  <ManageAllOrders></ManageAllOrders>
+                </PrivetRoute>
 
-            </Switch>
+              </Switch>
+            </div>
             <div style={{ position: 'absolute', top: '10%', right: '10%', width: '250px' }}>
               <UserData></UserData>
             </div>
+          </div>
+          <div>
+            <Footer></Footer>
           </div>
         </Router>
       </AuthProvider>

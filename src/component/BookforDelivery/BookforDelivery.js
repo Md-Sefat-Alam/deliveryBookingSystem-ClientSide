@@ -26,11 +26,8 @@ const BookforDelivery = (props) => {
 
         console.log(data);
 
-        // const localUrl = "http://localhost:7000/"
-        // const globalUrl = "https://gentle-beyond-97539.herokuapp.com/"
-
         // const URI = 'https://gentle-beyond-97539.herokuapp.com/'
-        const URI = 'http://localhost:7000/'
+        const URI = 'https://gentle-beyond-97539.herokuapp.com/'
 
         axios.post(`${URI}booking`, data)
             .then(res => {
@@ -47,9 +44,9 @@ const BookforDelivery = (props) => {
             <div>
                 <h2 className='heading'>Book For Delivery</h2>
                 <div className='d-flex justify-content-center'>
-                    <form className='w-50' onSubmit={handleSubmit(onSubmit)}>
-                        <div className='d-flex'>
-                            <div className='d-flex flex-column w-50'>
+                    <form className='w-sm-100 w-md-50' onSubmit={handleSubmit(onSubmit)}>
+                        <div className='d-flex flex-column flex-md-row'>
+                            <div className='d-flex flex-column w-100 w-md-50'>
                                 {/* <div className='inputWrap'>
                                     <span>Service Type</span>
                                     <input required id='serviceType' {...register("serviceType")} />
@@ -133,7 +130,7 @@ const BookforDelivery = (props) => {
 
                                 <div className='inputWrap'>
                                     <span>Name</span>
-                                    <input required {...register("nameClient")} />
+                                    <input defaultValue="" required {...register("nameClient")} />
                                 </div>
                                 <div className='inputWrap'>
                                     <span>Phone</span>

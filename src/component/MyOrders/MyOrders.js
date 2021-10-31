@@ -13,7 +13,7 @@ const MyOrders = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        const url = `http://localhost:7000/my-orders/${uid}`
+        const url = `https://gentle-beyond-97539.herokuapp.com/my-orders/${uid}`
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -25,7 +25,7 @@ const MyOrders = () => {
     const handleDeleteMyOrder = async (id) => {
         const confirmDelete = prompt('Are you sure you want to delete? type <delete>');
         if (confirmDelete === 'delete') {
-            const res = await axios.delete(`http://localhost:7000/my-orders/${id}`);
+            const res = await axios.delete(`https://gentle-beyond-97539.herokuapp.com/my-orders/${id}`);
             if (res.status === 200) {
                 const removedOrder = myOrders.filter(data => data._id !== id)
                 setMyOrders(removedOrder);
@@ -71,17 +71,18 @@ const MyOrders = () => {
                                                     </div>
                                                 </div>
 
-                                                <div className='py-0'>
-                                                    <span>Cost:</span>
-                                                    <p className='fs-4 fw-bold'>{cost} tk</p>
-                                                </div>
-
-                                                {
-                                                    offerSelectedData?._id && <div className='py-0'>
-                                                        <span>Selected a offer:</span>
-                                                        <p className='fs-5 fw-bold'>{offerSelectedData.offer}</p>
+                                                <div className='d-flex justify-content-between'>
+                                                    <div className='py-0'>
+                                                        <span>Cost:</span>
+                                                        <p className='fs-4 fw-bold'>{cost} tk</p>
                                                     </div>
-                                                }
+                                                    {
+                                                        offerSelectedData?._id && <div className='py-0 text-success'>
+                                                            <span>Selected a offer:</span>
+                                                            <p className='fw-bold'>{offerSelectedData.offer}</p>
+                                                        </div>
+                                                    }
+                                                </div>
 
 
                                             </div>

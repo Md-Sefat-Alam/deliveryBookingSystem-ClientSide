@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Loading from '../Loading/Loading';
 
@@ -13,7 +12,7 @@ const ManageAllOrders = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        const url = `http://localhost:7000/all-orders`
+        const url = `https://gentle-beyond-97539.herokuapp.com/all-orders`
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -25,7 +24,7 @@ const ManageAllOrders = () => {
     const handleDeleteMyOrder = async (id) => {
         const confirmDelete = prompt('Are you sure you want to delete? type <delete>');
         if (confirmDelete === 'delete') {
-            const res = await axios.delete(`http://localhost:7000/my-orders/${id}`);
+            const res = await axios.delete(`https://gentle-beyond-97539.herokuapp.com/my-orders/${id}`);
             if (res.status === 200) {
                 const removedOrder = allOrders.filter(data => data._id !== id)
                 setAllOrders(removedOrder);
@@ -37,7 +36,7 @@ const ManageAllOrders = () => {
     }
 
     const handleStatusUpdate = async (id) => {
-        const res = await axios.put(`http://localhost:7000/update-order/${id}`);
+        const res = await axios.put(`https://gentle-beyond-97539.herokuapp.com/update-order/${id}`);
         const updateOrder = allOrders.find(data => data._id === id);
         updateOrder.orderStatus = 'approved'
         const withOutUpdateOrder = allOrders.filter(order => order._id !== id);

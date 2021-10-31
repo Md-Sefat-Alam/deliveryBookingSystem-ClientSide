@@ -1,24 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import BookforDelivery from '../BookforDelivery/BookforDelivery';
+import Loading from '../Loading/Loading';
 
 
 const OrderWithOffer = () => {
+    const [isLoading, setIsLoading] = useState(true)
     const [selectedOffer, setSelectedOffer] = useState({});
 
     const { id } = useParams();
-    const url = `http://localhost:7000/user-offer/${id}`
+    const url = `https://gentle-beyond-97539.herokuapp.com/user-offer/${id}`
 
     useEffect(() => {
+        setIsLoading(true);
         fetch(url)
             .then(res => res.json())
-            .then(data => setSelectedOffer(data))
+            .then(data => {
+                setSelectedOffer(data)
+                setIsLoading(false);
+            })
             .catch(error => {
 
             })
     }, [])
 
-    console.log(selectedOffer);
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
     const { _id, offerName, description, imgURL, offer } = selectedOffer
     const offerSelect = { offer, _id }
 
@@ -52,7 +61,7 @@ const OrderWithOffer = () => {
                                 </div>
                                 <div>
                                     <div>
-                                        <img style={{ maxHeight: '300px' }} src={imgURL} alt="" />
+                                        <img style={{ maxHeight: '300px' }} className='img-fluid' src={imgURL} alt="" />
                                     </div>
                                 </div>
                             </div>
