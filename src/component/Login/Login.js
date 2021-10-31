@@ -8,6 +8,7 @@ const Login = () => {
     const location = useLocation();
     const history = useHistory();
     const redirect_uri = location.state?.from || '/home';
+    document.title = 'Login || Delivery Booking System';
 
     const { signInUsingGoogle, setUser, setMessage, setIsLoading } = useAuth();
 
@@ -20,6 +21,7 @@ const Login = () => {
             })
             .catch(error => {
                 setMessage(error.code);
+                alert(error.code);
             })
             .finally(() => setIsLoading(false))
     }

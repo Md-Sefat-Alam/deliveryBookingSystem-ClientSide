@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import Loading from '../Loading/Loading';
 
 const ManageAllOrders = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [allOrders, setAllOrders] = useState([]);
+    document.title = 'Manage All Orders || Delivery Booking System';
 
     const { user } = useAuth();
     const { uid } = user;
@@ -52,6 +54,17 @@ const ManageAllOrders = () => {
 
     if (isLoading) {
         return <Loading></Loading>
+    }
+
+    if (allOrders.length === 0) {
+        return (
+            <div style={{ minHeight: '90vh' }} className='container d-flex justify-content-center align-items-center'>
+                <div>
+                    <p className='text-danger bg-warning p-2'>You have no any orders</p>
+                    <Link to='/booking' className='btn btn-primary'>Order Now?</Link>
+                </div>
+            </div>
+        )
     }
 
     return (

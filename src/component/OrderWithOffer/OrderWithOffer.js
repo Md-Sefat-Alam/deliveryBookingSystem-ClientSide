@@ -7,6 +7,7 @@ import Loading from '../Loading/Loading';
 const OrderWithOffer = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [selectedOffer, setSelectedOffer] = useState({});
+    document.title = 'Order With Offer || Delivery Booking System';
 
     const { id } = useParams();
     const url = `https://gentle-beyond-97539.herokuapp.com/user-offer/${id}`

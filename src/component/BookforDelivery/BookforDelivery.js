@@ -9,6 +9,10 @@ import './BookforDelivery.css'
 
 const BookforDelivery = (props) => {
     const { offerSelect } = props;
+    document.title = 'Book for Delivery || Delivery Booking System';
+    if (offerSelect?._id) {
+        document.title = 'Order With Offer || Delivery Booking System';
+    }
 
     const { user } = useAuth();
 
@@ -44,9 +48,9 @@ const BookforDelivery = (props) => {
             <div>
                 <h2 className='heading'>Book For Delivery</h2>
                 <div className='d-flex justify-content-center'>
-                    <form className='w-sm-100 w-md-50' onSubmit={handleSubmit(onSubmit)}>
+                    <form className='' onSubmit={handleSubmit(onSubmit)}>
                         <div className='d-flex flex-column flex-md-row'>
-                            <div className='d-flex flex-column w-100 w-md-50'>
+                            <div className='d-flex flex-column w-100 w-md-100'>
                                 {/* <div className='inputWrap'>
                                     <span>Service Type</span>
                                     <input required id='serviceType' {...register("serviceType")} />

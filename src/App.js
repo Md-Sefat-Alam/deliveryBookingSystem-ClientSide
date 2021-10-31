@@ -16,6 +16,7 @@ import MyOrders from './component/MyOrders/MyOrders';
 import ManageAllOrders from './component/ManageAllOrders/ManageAllOrders';
 import OrderWithOffer from './component/OrderWithOffer/OrderWithOffer';
 import Footer from './component/Footer/Footer';
+import NotFound from './component/NotFound/NotFound';
 
 
 function App() {
@@ -61,6 +62,10 @@ function App() {
                 <PrivetRoute path='/manage-all-orders'>
                   <ManageAllOrders></ManageAllOrders>
                 </PrivetRoute>
+
+                <Route path="*">
+                  <NotFound></NotFound>
+                </Route>
 
               </Switch>
             </div>

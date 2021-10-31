@@ -5,6 +5,8 @@ import Loading from '../Loading/Loading';
 const Home = () => {
     const [offerData, setOfferData] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
+    document.title = 'Home || Delivery Booking System';
+
 
     useEffect(() => {
         setIsLoading(true);

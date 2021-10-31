@@ -7,6 +7,7 @@ const SetOwnOffer = () => {
     const location = useLocation();
     const history = useHistory();
     const redirect_uri = location.state?.from || '/home';
+    document.title = 'Set Own Offer || Delivery Booking System';
 
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, e) => {

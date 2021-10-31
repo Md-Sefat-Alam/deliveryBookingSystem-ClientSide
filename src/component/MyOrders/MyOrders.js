@@ -7,6 +7,7 @@ import Loading from '../Loading/Loading';
 const MyOrders = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [myOrders, setMyOrders] = useState([]);
+    document.title = 'My Orders || Delivery Booking System';
 
     const { user } = useAuth();
     const { uid } = user;
@@ -38,6 +39,17 @@ const MyOrders = () => {
 
     if (isLoading) {
         return <Loading></Loading>
+    }
+
+    if (myOrders.length === 0) {
+        return (
+            <div style={{ minHeight: '90vh' }} className='container d-flex justify-content-center align-items-center'>
+                <div>
+                    <p className='text-danger bg-warning p-2'>You have no any orders</p>
+                    <Link to='/booking' className='btn btn-primary'>Order Now?</Link>
+                </div>
+            </div>
+        )
     }
 
     return (
